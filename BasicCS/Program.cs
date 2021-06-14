@@ -1,17 +1,36 @@
 ﻿using System;
-
+#nullable enable
 namespace BasicCS
 {
+    public struct StudentStruct
+    {
+        public string FirstName;
+        public string? MiddleName;
+        public string LastName;
+    }
     class Program
     {
         static void Main(string[] args)
         {
-            test();
+            Person.Id = 0;
+            Person.Name = "Ab";
+
+            Console.WriteLine(Person.GetNameCode());
+
+            Student std = new Student();
+
+            Student.InsertAllStudent();
+            PrintStudent(default);
         }
 
-        static void test()
+        public static void PrintStudent(StudentStruct student)
         {
-            Console.WriteLine("test()");
+            Console.WriteLine($"First name: {student.FirstName.ToUpper()}");
+            Console.WriteLine($"Middle name: {student.MiddleName.ToUpper()}");
+            Console.WriteLine($"Last name: {student.LastName.ToUpper()}");
         }
+
     }
+
+
 }
